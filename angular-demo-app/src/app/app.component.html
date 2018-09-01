@@ -1,0 +1,107 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<h2>Book Flight</h2>
+<div class="topnav">
+  <a class="active" href="#home">1.Search Flight</a>
+  <a href="#news">2.Select Flight</a>
+  <a href="#contact">3.Flight Price</a>
+  <a href="#about">4.Book Ticket</a>
+  <a href="#about">5.Payment</a>
+  <a href="#about">4.Booking Summary</a>
+</div> 
+
+<div class="form_test">
+
+<form class="myForm" method="post" enctype="application/x-www-form-urlencoded" action="/html/codes/html_form_handler.cfm">
+
+  <fieldset>
+    <legend>Search for one way or return flights below: </legend>
+    <p><label class="choice"> <input type="radio" name="taxi" required value="car">One Way </label></p>
+    <p><label class="choice"> <input type="radio" name="taxi" required value="van"> Return </label></p>
+  </fieldset>
+
+  <p>
+    <label>FROM
+      <select id="pickup_place" name="pickup_place">
+        <option value="" selected="selected">Select One</option>
+        <option value="india">India</option>
+        <option value="france">France</option>
+        <option value="poland">Poland</option>
+      </select>
+    </label>
+  </p>
+
+  <p>
+    <label>TO
+      <select id="pickup_place" name="pickup_place">
+        <option value="" selected="selected">Select One</option>
+        <option value="india">India</option>
+        <option value="france">France</option>
+        <option value="poland">Poland</option>
+      </select>
+    </label>
+  </p>
+
+  <p>
+    <label for="start">DEPARTED
+     <input class="cal" type="date" id="start" name="trip" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+    </label>
+  </p>
+
+  <p>
+    <label for="start">RETURN
+      <input type="date" id="start" name="trip" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+    </label>
+  </p>
+
+
+  <p>
+    <label>ADULT
+      <select id="pickup_place" name="pickup_place">
+        <option value="" selected="selected">Select One</option>
+        <option value="india">1</option>
+        <option value="france">2</option>
+        <option value="poland">3</option>
+      </select>
+    </label>
+  </p>
+  
+  <p>
+    <label>CHILDREN
+      <select id="pickup_place" name="pickup_place">
+        <option value="" selected="selected">Select One</option>
+        <option value="india">1</option>
+        <option value="france">2</option>
+        <option value="poland">3</option>
+      </select>
+    </label>
+  </p>
+  
+  <p>
+    <label>INFANT
+      <select id="pickup_place" name="pickup_place">
+        <option value="" selected="selected">Select One</option>
+        <option value="india">1</option>
+        <option value="france">2</option>
+        <option value="poland">3</option>
+      </select>
+    </label>
+  </p>
+  
+  <p>
+    <label>CLASS
+      <select id="pickup_place" name="pickup_place">
+        <option value="" selected="selected">Select One</option>
+        <option value="india">Economy</option>
+        <option value="france">Business</option>
+      </select>
+    </label>
+  </p>
+
+<ul class="sub">
+  <li><button>Reset</button></li>&nbsp;&nbsp;&nbsp;
+  <li><button>Search</button></li>
+</ul>
+
+</form>
+
+</div>
