@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  /*selector: 'app-test',*/
+  selector: 'app-test',
   /*selector: '.app-test',*/
-  selector: '[app-test]',
+  /*selector: '[app-test]',*/
   template: `
-   <!-- <h2>
+   <h2>
     welcome {{name}}
-   </h2>  -->
+   </h2>
    <!-- Interpolation -->
    <!-- <h2>{{2+2}}</h2>
   <h2>{{"welcome"+name}}<h2>
@@ -101,13 +101,57 @@ import { Component, OnInit } from '@angular/core';
   </div>  -->
 
   <!-- component interaction -->
+  <!-- sending data from parent to child component -->
+  <!-- <h2>{{"Hello " + parentData}}</h2> -->
+  <h2>{{"Second way " + datafromparent}}</h2>
+  <!--sending data from child to parent component-->
+  <button (click)="fireEvent()">send event</button>
+
+  <!-- pipes in angular with examples -->
+  <h2 style="color:red">pipes examples started</h2>
+  <!-- string pipes -->
+  <!--
+  <h2>{{namepipes}}</h2>
+  <h2>{{namepipes | lowercase}}</h2>
+  <h2>{{namepipes | uppercase}}</h2>
+  <h2>{{namepipes | titlecase}}</h2>
+  <h2>{{namepipes | slice:3}}</h2>
+  <h2>{{namepipes | slice:3:5}}</h2>
+  <h2>{{person | json}}</h2>
+  -->
+  <!-- number pipes -->
+  <!--
+  <h2>{{5.678 | number:'1.2-3'}}</h2>
+  <h2>{{5.678 | number:'3.4-5'}}</h2>
+  <h2>{{5.678 | number:'3.1-2'}}</h2>
+
+  <h2>{{0.25 | percent}}</h2>
+  <h2>{{0.25 | currency}}</h2>
+  <h2>{{0.25 | currency: 'GBP'}}</h2>
+  <h2>{{0.25 | currency: 'GBP': 'code'}}</h2>
+  <h2>{{0.25 | currency: 'EUR': 'code'}}</h2>
+  -->
+
+  <!-- DATE pipe -->
+  <!--
+  <h2>{{ date }}</h2>
+  <h2>{{ date | date:'short'}}</h2>
+  <h2>{{ date | date:'shortDate'}}</h2>
+  <h2>{{ date | date:'shortTime'}}</h2>
+  <h2>{{ date | date:'medium'}}</h2>
+  <h2>{{ date | date:'mediumDate'}}</h2>
+  <h2>{{ date | date:'mediumTime'}}</h2>
+  <h2>{{ date | date:'long'}}</h2>
+  <h2>{{ date | date:'longDate'}}</h2>
+  <h2>{{ date | date:'longTime'}}</h2>
+  -->
 
 
 
 
 
-   
   `,
+  
   styles: [`
    .text-success {
      color: green;
@@ -123,7 +167,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  public name = "Noorul";
+  public name = "Noorulislam";
   public siteUrl = window.location.href;
   public myId = "testId"
   public successClass = "text-success";
@@ -152,6 +196,24 @@ export class TestComponent implements OnInit {
 
   public lists = ["red", "blue", "green", "yellow"];
 
+  /** Component Interaction */
+  /*@Input() public parentData;*/
+  /* Second way to send data from parent to child components */
+  @Input('parentData') public datafromparent;
+  /** Sending data from child component to parent component, done by EventEmitter class*/
+  @Output() public childEvent = new EventEmitter();
+  /** pipes in angular with example */
+  public namepipes = "Codeevoluion";
+  public message = "Welcome to codeevolution";
+  public person = {
+    "firstname": "John",
+    "lastname": "Doe"
+  }
+
+  public date = new Date();
+
+
+
   constructor() { }
 
   ngOnInit() {
@@ -173,6 +235,10 @@ export class TestComponent implements OnInit {
 
   logMessage(value) {
     console.log(value);
+  }
+
+  fireEvent(){
+    this.childEvent.emit('msg sent to parent component');
   }
 
 }
