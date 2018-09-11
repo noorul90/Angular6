@@ -146,6 +146,8 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
   <h2>{{ date | date:'longTime'}}</h2>
   -->
 
+  
+
 
 
 
